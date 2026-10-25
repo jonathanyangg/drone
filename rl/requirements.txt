@@ -1,0 +1,26 @@
+# Pins verified together on Python 3.12 (Linux x86_64).
+# gym-pybullet-drones 2.2.0 is not on PyPI. This commit is current main
+# as of 2026-10-25 (tested upstream on Apple Silicon / macOS 26 and Ubuntu 24.04).
+#
+# On macOS, Python 3.12 has no pybullet wheel. Build it first, then install
+# this file (pip will see pybullet as already satisfied):
+#   CFLAGS="-Dfdopen=fdopen" pip install pybullet==3.2.7 --no-cache-dir
+#
+# torch==2.13.0 resolves to the platform wheel. The Linux wheel pulls CUDA
+# libraries even for a CPU run. The macOS wheel is CPU/MPS. Do not point pip
+# at a CUDA index. Train with --device cpu; stable-baselines3 2.9 has no MPS backend.
+
+setuptools==84.2.1
+gym-pybullet-drones @ git+https://github.com/learnsyslab/gym-pybullet-drones.git@f83fbdd4ee1c07e1afa52694963f3a9a889a0f56
+numpy==2.5.4
+pybullet==3.2.7
+gymnasium==1.3.0
+scipy==1.18.1
+pillow==12.3.0
+transforms3d==0.4.2
+# Required by gym-pybullet-drones' package metadata. This project does not import them.
+matplotlib==3.11.2
+control==0.10.2
+torch==2.13.0
+stable-baselines3==2.9.0
+pytest==9.1.1

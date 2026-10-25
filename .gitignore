@@ -1,0 +1,6 @@
+# Training runs, local virtualenvs, and bytecode.
+rl/outputs/
+rl/.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
